@@ -47,6 +47,7 @@
     "ts-jest": "^22.4.6"
   },
   "dependencies": {
+    "mathjs": "^4.2.2",
     "typescript": "^2.8.3"
   }
 }

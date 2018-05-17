@@ -15,14 +15,7 @@ class grades {
   }
 }
 export { grades };
-// Implementation of the grade using classes
-console.log('### Excercise 1');
-console.log('## Using ES6 Class, using the new keyword');
-const gradeObj = [90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75];
-const grade = new grades(gradeObj);
-grade.addGrade(90);
-grade.addGrade(25);
-console.log(`Avg grade: ${grade.displayAvg()}`);
+
 
 
 const gradesProto = {
