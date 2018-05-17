@@ -8,18 +8,18 @@ class grades {
     this.grades = [...this.grades, grade];
   }
 
-  displayAvg(){
+  displayAvg() {
     let sum = 0;
-    this.grades.forEach(grade => sum += grade );
+    this.grades.forEach(grade => sum += grade);
     return sum / this.grades.length;
   }
 }
-
+export { grades };
 // Implementation of the grade using classes
 console.log('### Excercise 1');
 console.log('## Using ES6 Class, using the new keyword');
-const gradeObj = [90,89,75,90,89,75,90,89,75,90,89,75,90,89,75,90,89,75];
-const grade    = new grades(gradeObj);
+const gradeObj = [90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75];
+const grade = new grades(gradeObj);
 grade.addGrade(90);
 grade.addGrade(25);
 console.log(`Avg grade: ${grade.displayAvg()}`);
@@ -41,7 +41,7 @@ const gradesProto = {
 
 // Implementation of the grade prototype
 console.log('\n## Using prototype, using Object.create()');
-const gradeO = [90,89,75,90,89,75,90,89,75,90,89,75,90,89,75,90,89,75];
+const gradeO = [90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75, 90, 89, 75];
 const gradeP = Object.create(gradesProto).init(gradeO);
 gradeP.addGrade(90);
 gradeP.addGrade(25);
@@ -73,7 +73,7 @@ console.log(`Avg grade: ${grade3.displayAvg()}`);
 
 // #############################################
 console.log('\n### Excercise 2');
-const arrayWords = ["hello ","my ","friend "];
+const arrayWords = ["hello ", "my ", "friend "];
 console.log(`orginal array: ${arrayWords} `);
 console.log(`displaying forward: ${arrayWords.reduce((total, word) => total + word)}`);
 console.log(`displaying backward: ${arrayWords.reduceRight((total, word) => total + word)}`);
@@ -81,7 +81,7 @@ console.log(`displaying backward: ${arrayWords.reduceRight((total, word) => tota
 // #############################################
 class weekTemps {
 
-  constructor(dataStore = []) {
+  constructor(dataStore = []) {
     this.dataStore = dataStore;
   }
 
@@ -90,10 +90,10 @@ class weekTemps {
   }
 
   averageWeek(week) {
-    let total     = 0;
+    let total = 0;
     let totalDays = this.dataStore[week].length;
 
-    this.dataStore[week].forEach(item => total += item );
+    this.dataStore[week].forEach(item => total += item);
 
     return (total / totalDays).toFixed(2);
   }
@@ -102,7 +102,7 @@ class weekTemps {
     let sum = 0;
 
     this.dataStore.forEach(week =>
-      week.forEach(day => sum += day )
+      week.forEach(day => sum += day)
     );
 
     return (sum / (this.dataStore.length * 4)).toFixed(2);
@@ -112,7 +112,7 @@ class weekTemps {
     let sum = 0;
 
     this.dataStore.forEach((week, count) => {
-      week.forEach(day => sum += day );
+      week.forEach(day => sum += day);
       console.log(`Week ${count + 1} Temp Avg: ${(sum / week.length).toFixed(2)}`);
       sum = 0;
     });
@@ -124,10 +124,10 @@ class weekTemps {
 console.log('\n### Excercise 3');
 
 const randomMonth = [
-  [45,23,32,12,31,21,22],
-  [12,12,13,11,9,34,23],
-  [33,34,23,25,26,12,11],
-  [14,15,18,19,22,24,25]
+  [45, 23, 32, 12, 31, 21, 22],
+  [12, 12, 13, 11, 9, 34, 23],
+  [33, 34, 23, 25, 26, 12, 11],
+  [14, 15, 18, 19, 22, 24, 25]
 ];
 const thisMonth = new weekTemps(randomMonth);
 
@@ -142,7 +142,7 @@ const weekTempsProto = {
     this.dataStore = dataStore
     return this
   },
-  add(temp){
+  add(temp) {
     this.dataStore.push(temp)
   },
   averageWeek(week) {
@@ -153,13 +153,13 @@ const weekTempsProto = {
   displayMonthAvg() {
     let sum = this.dataStore.reduce((weeks, week) =>
       weeks + week.reduce((days, day) => days + day, 0)
-    , 0)
+      , 0)
     return (sum / (this.dataStore.length * 4)).toFixed(2)
   },
   displayAllWeekAvg() {
     let sum = 0
     this.dataStore.forEach((week, count) => {
-      week.forEach(day => sum += day )
+      week.forEach(day => sum += day)
       console.log(`Week ${count + 1} Temp Avg: ${(sum / week.length).toFixed(2)}`)
       sum = 0
     });
@@ -181,5 +181,5 @@ console.log(JSON.stringify(weekTempsProto, null, 2));
 // #############################################
 console.log('\n### Excercise 4');
 
-const letters = ['a','b','a','c','a','d','a','b','r','a'];
+const letters = ['a', 'b', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'];
 console.log(letters.reduce((all, letter) => all + letter));

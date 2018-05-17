@@ -3,8 +3,24 @@
   "version": "1.0.0",
   "description": "Data Structures and Algorithims with ES6",
   "main": "index.js",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*.spec.ts",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
   "scripts": {
-    "test": "qunit -t test.js"
+    "test": "node --inspect=7000 ./node_modules/jest/bin/jest.js --runInBand  --watch",
+    "test-qunit": "qunit -t test.js",
+    "qunit": "node_modules/.bin/qunit -t 04-chapter-Stack/test.js -c 04-chapter-Stack/test.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +42,11 @@
   },
   "homepage": "https://github.com/Crizstian/data-structure-and-algorithms-with-ES6#readme",
   "devDependencies": {
-    "qunit": "^0.9.1"
+    "jest": "^22.4.3",
+    "qunit": "^0.9.1",
+    "ts-jest": "^22.4.6"
+  },
+  "dependencies": {
+    "typescript": "^2.8.3"
   }
 }
